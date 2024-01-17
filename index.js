@@ -48,4 +48,35 @@ function startApp() {
     }
     });
     };
-    
+
+
+
+
+    function viewDepartments(){
+        connect.query("select * from department", (err, res) => {
+            if(err) throw err;
+            console.table(res);
+            startApp();
+        });
+    };
+
+
+    function viewRoles(){
+        connect.query("select * from role", (err, res) => {
+            if(err) throw err;
+            console.table(res);
+            startApp();
+        });
+    };
+
+    function viewEmployees(){
+        connect.query("select * from employee", (err, res) => {
+            if(err) throw err;
+            console.table(res);
+            startApp();
+        });
+    };
+
+
+
+    startApp();
