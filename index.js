@@ -77,6 +77,52 @@ function startApp() {
         });
     };
 
+function addDepartment(){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "new_department",
+            message: "please enter department name",
+        }
+    ]).then(data => {
+        connect.query("insert into department set ?", {
+            name: data.new_department
+        })
+        console.log("New Department Added.")
+        startApp()
+    })
+};
+
+
+function addRole(){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "new_role",
+            message: "please enter role title",
+        },
+        {
+            type: "input",
+            name: "new_salary",
+            message: "please enter salary amount",
+        },
+        {
+            type: "input",
+            name: "new_id",
+            message: "please enter a department id for this roll (#1-5)",
+        },
+
+
+    ]).then(data => {
+        connect.query("insert into role set ?", {
+            title: data.new_role,
+            salary: data.new_salary,
+            department_id: data.new_id
+        })
+        console.log("New Role Added.")
+        startApp()
+    })
+};
 
 
     startApp();
