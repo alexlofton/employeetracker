@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
     database: 'employee_db',
 });
 
-connection.connect((err, results) => {
+connection.connect((err) => {
     if (err) throw err;
     console.log('Schema created!');
 });
